@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>BASE64 Encrytion</title>
+	<script>
+		function encrytion(){
+			var input=document.getElementById("input").value;
+			document.getElementById("result").innerHTML=btoa(encodeURIComponent(input));
+		}
+		function decrytion(){
+			var input=document.getElementById("input").value;
+			document.getElementById("result").innerHTML=decodeURIComponent(atob(input));
+		}
+		function time(){
+			document.getElementById("date").innerHTML=new Date();
+		}
+	</script>
+	<style>
+		#main{
+			padding-top: 70px;
+			text-align: center;
+		}
+		#input{
+			height: 22px;
+			width: 250px;
+			border-style: solid;
+			border-color: gray;
+			border-width: thin;
+			font-size: medium;
+		}
+		#result{
+			color: dimgray;
+			font-size: larger;
+		}
+		.button{
+			height: 26px;
+			width: 76px;
+			background-color: lightgray;
+			border-style: none;
+			font-size: medium;
+			box-shadow: 2px 2px 2px #AAAAAA;
+		}
+		.head{
+			font-size: 48px;
+			font-family: Microsoft YaHei;
+			color: dimgray;
+		}
+		.button:hover{
+			background-color: gray;
+			color: white;
+		}
+		.button:active{
+			background-color: dimgray;
+			color: white;
+		}
+		#input:hover{
+			border-color: dimgray;
+			box-shadow: 2px 2px 2px #AAAAAA;
+		}
+		#date{
+			display: block;
+			position: fixed;
+			bottom: 10px;
+			text-align: center;
+			width: 100%;
+		}
+		@media screen and (max-height: 400px){
+			#date{
+				display: none;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="main">
+		<h1 class="head">BASE64 Encrytion</h1>
+		<input id="input" type="text" />
+		<input type="button" class="button" value="Encryt" onClick="encrytion()" />
+		<input type="button" class="button" value="Decryt" onClick="decrytion()" />
+		<div id="result" />
+	</div>
+	<p id="date"></p>
+	<script>time();setInterval("time()",1000);</script>
+</body>
+</html>
